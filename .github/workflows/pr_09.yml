@@ -18,7 +18,7 @@ jobs:
               PR_CONTEXT: ${{ toJson(github) }} 
             run: | 
               echo $PR_CONTEXT > github-context.txt
-              run: date +%s > report.txt
+              date +%s > report.txt
         - name: Commit report
           run: |
             git config --global user.name 'Github Action'
