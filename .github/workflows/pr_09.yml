@@ -1,0 +1,28 @@
+name: "github context"
+permissions:
+
+on:
+    push:
+
+    workflow_dispatch:
+permissions:
+    contents: write
+jobs:
+    
+    context:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        -   name: Create report file
+            env:
+              PR_CONTEXT: ${{ toJson(github) }} 
+            run: | 
+              echo $PR_CONTEXT > github-context.txt
+              run: date +%s > report.txt
+        - name: Commit report
+          run: |
+            git config --global user.name 'Github Action'
+            git config --global user.email 'kleinen@infrastructure.de'
+            git commit -am "Automated report"
+            git push
+
