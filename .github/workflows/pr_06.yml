@@ -1,4 +1,4 @@
-name: "Show PRs/Mine"
+name: "Show Pull Requests"
     
 on:
     workflow_run:
@@ -12,7 +12,7 @@ jobs:
         steps:
     
             -   name: bkleinen list pr
-                id: pulls
+                id: list
                 uses: bkleinen/list-pull-requests@v0.3
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
@@ -22,7 +22,7 @@ jobs:
 
             -   name: output
                 run: |
-                    echo '${{ steps.pulls.outputs.pulls }}'
-                    echo '${{ steps.pulls.outputs.claim }}'
-                    echo '${{ steps.pulls.outputs.filtered }}'
+                    echo '${{ steps.list.outputs.pulls }}'
+                    echo '${{ steps.list.outputs.claim }}'
+                    echo '${{ steps.list.outputs.filtered }}'
 
