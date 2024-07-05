@@ -17,6 +17,9 @@ jobs:
     echo-event: 
         runs-on: ubuntu-latest
         steps:
+            -   name: Branch
+                run: |
+                  echo $GITHUB_REF
             - name: Save PR number
               env:
                 PR_NUMBER: ${{ github.event.number }}
