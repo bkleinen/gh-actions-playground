@@ -15,6 +15,6 @@ jobs:
 
             -   name: output
                 run: |
-                    echo  ${{ steps.myaction.outputs.time}}
+                    echo  "${{ steps.myaction.outputs.time }}"
 
        
