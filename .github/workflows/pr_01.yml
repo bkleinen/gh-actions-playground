@@ -8,6 +8,6 @@ jobs:
     hallo: 
         runs-on: ubuntu-latest
         steps:
-            - name: "hello"
+            - name: "hello in branch"
               run: | 
                 echo "hello world"
