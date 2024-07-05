@@ -3,8 +3,7 @@ name: "Run after PR WF"
 on:
     workflow_run:
         workflows: [Which branch]
-        types:
-            - completed
+
     workflow_dispatch:
 
 jobs:
