@@ -1,4 +1,4 @@
-name: "Which branch"
+name: "Run after PR WF"
     
 on:
     workflow_run:
