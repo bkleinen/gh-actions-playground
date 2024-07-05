@@ -11,3 +11,7 @@ jobs:
             - name: "hello in branch"
               run: | 
                 echo "hello world"
+     
+            - name: "special step in branch"
+              run: | 
+                echo "hello world"
