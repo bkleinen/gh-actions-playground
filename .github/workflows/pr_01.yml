@@ -5,6 +5,12 @@ on:
     workflow_dispatch:
 
 jobs:
+    job-main:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "hello from special job in main"
+              run: | 
+                echo "hello world"
     hallo: 
         runs-on: ubuntu-latest
         steps:
