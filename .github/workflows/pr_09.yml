@@ -17,6 +17,7 @@ jobs:
             env:
               PR_CONTEXT: ${{ toJson(github) }} 
             run: | 
+              echo $PR_CONTEXT
               echo $PR_CONTEXT > github-context.txt
               date +%s > report.txt
         - name: Commit report
