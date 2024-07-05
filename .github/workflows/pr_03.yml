@@ -3,6 +3,7 @@ name: "Another after-PR"
 on:
     workflow_run:
         workflows: [Which branch]
+        types: [completed]
 
     workflow_dispatch:
 
@@ -16,6 +17,12 @@ jobs:
     echo-event: 
         runs-on: ubuntu-latest
         steps:
+            - name: Save PR number
+              env:
+                PR_NUMBER: ${{ github.event.number }}
+              run: |
+                echo $PR_NUMBER 
+        
             - name: "hello from main"
               env:
                 PR_CONTEXT: ${{ toJson(github.event.workflow_run) }} 
