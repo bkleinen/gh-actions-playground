@@ -4,7 +4,7 @@ on:
     workflow_run:
         workflows: [Which branch]
         types: [completed]
-
+    push:
     workflow_dispatch:
 jobs:
     list-pull-requests:
@@ -12,8 +12,8 @@ jobs:
         steps:
     
             -   name: bkleinen list pr
-                id: list
-                uses: bkleinen/list-pull-requests@v0.2
+                id: pulls
+                uses: bkleinen/list-pull-requests@v0.3
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
                     #state: 'open'
@@ -22,5 +22,7 @@ jobs:
 
             -   name: output
                 run: |
-                    echo '${{ steps.list.outputs.pulls }}'
+                    echo '${{ steps.pulls.outputs.pulls }}'
+                    echo '${{ steps.pulls.outputs.claim }}'
+                    echo '${{ steps.pulls.outputs.filtered }}'
 
