@@ -13,7 +13,7 @@ jobs:
     
             -   name: bkleinen list pr
                 id: list
-                uses: bkleinen/list-pull-requests@v0.1
+                uses: bkleinen/list-pull-requests@v0.2
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
                     #state: 'open'
