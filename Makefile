@@ -1,4 +1,4 @@
-.PHONY : hugo hugoP open
+.PHONY : quick-push
 .RECIPEPREFIX = -
 
 quick-push:
