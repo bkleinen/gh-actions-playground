@@ -1,0 +1,15 @@
+name: "My Action"
+    
+on:
+    push:
+
+    workflow_dispatch:
+jobs:
+    list-pull-requests:
+        runs-on: ubuntu-latest
+        steps:
+    
+            -   name: my action
+                id: list
+                uses: bkleinen/hello-world-javascript-action@v1.2
+       

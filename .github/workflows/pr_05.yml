@@ -1,0 +1,40 @@
+name: "Show PRs/Others"
+    
+on:
+    workflow_run:
+        workflows: [Which branch]
+        types: [completed]
+
+    workflow_dispatch:
+jobs:
+    # https://github.com/marketplace/actions/github-list-pull-requests
+    list-pull-requests:
+        runs-on: ubuntu-latest
+        steps:
+    
+            -   name: list all closed pull requests in last 24 hours
+                id: list
+                uses: actions/github-list-pull-requests@v1.0
+                with:
+                    token: ${{secrets.GITHUB_TOKEN}}
+                    #state: 'open'
+                    labels: "PR-DEPLOY"
+                    window: '24'
+
+            -   name: output
+                run: echo '${{ steps.list.outputs.pullRequestNumbers }}'
+
+    # https://github.com/marketplace/actions/list-pull-requests
+    send_pull_requests:
+        runs-on: ubuntu-latest
+        name: A job to say hello
+        steps:
+          - name: listPullRequests
+            uses: buildsville/list-pull-requests@v1
+            id: list2
+            with:
+              token: ${{secrets.GITHUB_TOKEN}}
+              labels: '["PR-DEPLOY"]'
+              skip_hour: '24'
+          - name: output
+            run: echo '${{ steps.list2.outputs.pulls }}'

@@ -1,0 +1,24 @@
+name: "Show PRs/Mine"
+    
+on:
+    workflow_run:
+        workflows: [Which branch]
+        types: [completed]
+
+    workflow_dispatch:
+jobs:
+    list-pull-requests:
+        runs-on: ubuntu-latest
+        steps:
+    
+            -   name: list all closed pull requests in last 24 hours
+                id: list
+                uses: bkleinen/github-list-pull-requests@v0.1
+                with:
+                    token: ${{secrets.GITHUB_TOKEN}}
+                    #state: 'open'
+                    labels: "PR-DEPLOY"
+                    window: '24'
+
+            -   name: output
+                run: echo '${{ steps.list.outputs.pullRequestNumbers }}'
