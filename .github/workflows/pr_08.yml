@@ -1,0 +1,20 @@
+name: "gh-list-pr"
+    
+on:
+    push:
+
+    workflow_dispatch:
+jobs:
+    my-action:
+        runs-on: ubuntu-latest
+        steps:
+    
+            -   name: my action
+                id: myaction
+                uses: bkleinen/gh-list-pr@v0.1
+
+            -   name: output
+                run: |
+                    echo  "${{ steps.myaction.outputs.pulls }}"
+
+       
