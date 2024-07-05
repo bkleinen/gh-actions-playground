@@ -8,7 +8,7 @@ jobs:
     hallo: 
         runs-on: ubuntu-latest
         steps:
-            - name: "hello in branch"
+            - name: "hello reunited"
               run: | 
                 echo "hello world"
      
