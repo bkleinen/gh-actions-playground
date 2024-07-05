@@ -1,9 +1,7 @@
 name: "Show PRs/Others"
     
 on:
-    workflow_run:
-        workflows: [Which branch]
-        types: [completed]
+
 
     workflow_dispatch:
 jobs:
@@ -14,7 +12,7 @@ jobs:
     
             -   name: list all closed pull requests in last 24 hours
                 id: list
-                uses: actions/github-list-pull-requests@v1.0
+                uses: actions/github-list-pull-requests@v1.0.0
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
                     #state: 'open'
@@ -27,7 +25,7 @@ jobs:
     # https://github.com/marketplace/actions/list-pull-requests
     send_pull_requests:
         runs-on: ubuntu-latest
-        name: A job to say hello
+        name: buildsville action
         steps:
           - name: listPullRequests
             uses: buildsville/list-pull-requests@v1
