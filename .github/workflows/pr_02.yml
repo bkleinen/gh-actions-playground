@@ -1,8 +1,8 @@
 name: "Run after PR WF"
     
 on:
-    workflow_run:
-        workflows: [Which branch]
+    #workflow_run:
+    #    workflows: [Which branch]
 
     workflow_dispatch:
 
