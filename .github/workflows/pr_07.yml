@@ -5,11 +5,11 @@ on:
 
     workflow_dispatch:
 jobs:
-    list-pull-requests:
+    hello-world:
         runs-on: ubuntu-latest
         steps:
     
             -   name: my action
                 id: list
-                uses: bkleinen/hello-world-javascript-action@v1.2
+                uses: bkleinen/hello-world-javascript-action@v1.3
        
