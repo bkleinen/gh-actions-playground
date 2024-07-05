@@ -14,10 +14,18 @@ jobs:
             - name: "this could deploy on the main branch"
               run: | 
                 echo "hello world"
+    extra03:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "extra job in branch02"
+              run: | 
+                echo "hello world"
     echo-event: 
         runs-on: ubuntu-latest
         steps:
             -   name: Branch
+                env: 
+                    GITHUB_REF: ${{ github.ref_name }}
                 run: |
                   echo $GITHUB_REF
             - name: Save PR number

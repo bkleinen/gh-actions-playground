@@ -11,14 +11,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
     
-            -   name: list all closed pull requests in last 24 hours
+            -   name: bkleinen list pr
                 id: list
-                uses: bkleinen/github-list-pull-requests@v0.1
+                uses: bkleinen/list-pull-requests@v0.1
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
                     #state: 'open'
-                    labels: "PR-DEPLOY"
-                    window: '24'
+                    labels: '["PR-DEPLOY"]'
+                    skip_hour: '24'
 
             -   name: output
-                run: echo '${{ steps.list.outputs.pullRequestNumbers }}'
+                run: |
+                    echo '${{ steps.list.outputs.pulls }}'
+
