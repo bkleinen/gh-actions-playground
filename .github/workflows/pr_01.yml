@@ -1,0 +1,10 @@
+on:
+    pull_request:
+
+jobs:
+    hallo: 
+        uses: ubuntu-latest
+        name: "hallo step"
+            steps:
+            run: | 
+                echo "hello world"
