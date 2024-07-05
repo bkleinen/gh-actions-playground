@@ -13,7 +13,7 @@ jobs:
     
             -   name: list all closed pull requests in last 24 hours
                 id: list
-                uses: bkleinen/github-list-pull-requests
+                uses: bkleinen/github-list-pull-requests@v0.1
                 with:
                     token: ${{secrets.GITHUB_TOKEN}}
                     #state: 'open'
